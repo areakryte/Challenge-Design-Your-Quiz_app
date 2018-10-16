@@ -12,6 +12,11 @@ var answers = [];
 function onStart(event){
   $(".start").remove();
 
+  count = 0;
+  correctAnswers = [];
+  quizQuestions = generateQuestion();
+  answers = [];
+
   answers.push(loadQuestions(quizQuestions[count]));
   count ++;
 }
@@ -84,9 +89,10 @@ function quizResults(){
 
   $("body").append("<div class=\"results\"><h1>Results</h1></div>");
   $("<p>Number Correct</p><br><p>" + correct + "/5</p>").appendTo(".results");
+  $("<button class=\"restart\">Restart</button>").appendTo(".results");
 }
 
-$(document.body).on("click", ".next",function(event){
+$(document.body).on("click", ".next", function(event){
   event.preventDefault();
 
   var radioButtons = document.getElementsByName('q1');
@@ -104,4 +110,15 @@ $(document.body).on("click", ".next",function(event){
   if(count > 5){
     quizResults();
   }
+});
+
+$(document.body).on("click", ".restart", function(event){
+  event.preventDefault();
+
+  $(".results").remove();
+  $("body").append("<div class=\"start\"><h1>Start Quiz</h1><button class=\"start-button\" onclick=\"onStart()\">Start</button></div>");
+});
+
+$(document.body).on("click", ".start", function(event){
+  onStart(event);
 });
