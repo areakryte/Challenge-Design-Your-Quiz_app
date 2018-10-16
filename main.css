@@ -1,15 +1,32 @@
 body{
-  
+  background-color: #4286f4;
 }
 
 h1{
-
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  color: black;
 }
 
 .start-button{
-
+  color: white;
+  background-color: white;
+  border-radius: 1px;
+  border-style: solid;
+  border-color: gray;
 }
 
 .questions{
+  border-radius: 9px;
+  background-color: white;
+}
 
+.start{
+  border-radius: 9px;
+  background-color: white;
+}
+
+.results{
+  border-radius: 9px;
+  background-color: white;
 }
