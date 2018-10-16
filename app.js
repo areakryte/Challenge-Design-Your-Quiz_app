@@ -1,8 +1,9 @@
-/* I know this code is easily compromised.
+/*
+* I know this code is easily compromised and generally filled with terrible coading practices.
 * If you are new to javascript, take a look and see how you can compromise the code.
 * Have fun!
 */
-var correctAnswers = 0;
+var correctAnswers = [];
 var count = 0;
 var answerKey = [1,3,4,1,2];
 var quizQuestions = generateQuestion();
@@ -13,9 +14,6 @@ function onStart(event){
 
   answers.push(loadQuestions(quizQuestions[count]));
   count ++;
-
-
-
 }
 
 function generateQuestion()
@@ -59,7 +57,7 @@ function generateQuestion()
 
   for(var i = 0; i <5; i++){
     newSection.push("<div class=\"questions\"><h2>" + questions[i] + "</h2>" +
-    "<input type=\"radio\" name=\"q1\" value=\"1\">" + answerOne[i] +"<br>" +
+    "<input type=\"radio\" name=\"q1\" value=\"1\" checked>" + answerOne[i] +"<br>" +
     "<input type=\"radio\" name=\"q1\" value=\"2\">" + answerTwo[i] +"<br>" +
     "<input type=\"radio\" name=\"q1\" value=\"3\">" + answerThree[i] +"<br>" +
     "<input type=\"radio\" name=\"q1\" value=\"4\">" + answerFour[i] +"<br>" +
@@ -75,12 +73,30 @@ function loadQuestions(arr){
 }
 
 function quizResults(){
+  var correct = 0;
+
+  for(var i = 0; i < answerKey.length; i++){
+    if(parseInt(correctAnswers[i]) === answerKey[i])
+    {
+      correct = correct + 1;
+    }
+  }
+
   $("body").append("<div class=\"results\"><h1>Results</h1></div>");
-  $("<p>Number Correct</p><br><p>" + 0 + "/5</p>").appendTo(".results");
+  $("<p>Number Correct</p><br><p>" + correct + "/5</p>").appendTo(".results");
 }
 
 $(document.body).on("click", ".next",function(event){
   event.preventDefault();
+
+  var radioButtons = document.getElementsByName('q1');
+
+  for(var i = 0, length = radioButtons.length; i < length; i++){
+    if(radioButtons[i].checked){
+      correctAnswers.push(radioButtons[i].value);
+    }
+  }
+
   $(".questions").remove();
   answers.push(loadQuestions(quizQuestions[count]));
   count = count + 1;
