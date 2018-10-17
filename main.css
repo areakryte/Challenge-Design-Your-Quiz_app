@@ -6,27 +6,62 @@ h1{
   font-family: 'Open Sans', sans-serif;
   font-size: 24px;
   color: black;
+  margin-left: 5px;
 }
 
-.start-button{
-  color: white;
+h2{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  color: black;
+  margin-left: 5px;
+  padding-top: 5px;
+}
+
+button{
+  color: black;
   background-color: white;
-  border-radius: 1px;
+  border-radius: 3px;
   border-style: solid;
   border-color: gray;
+  font-family: 'Open Sans', sans-serif;
+  border-width: 1px;
+  padding: 8px;
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  width: calc(100% - 30px);
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 10px;
+}
+
+[type=checkbox], [type=radio]{
+  font-family: 'Open Sans', sans-serif;
+  margin-left: 10px;
 }
 
 .questions{
-  border-radius: 9px;
+  border-radius: 5px;
   background-color: white;
+  width: 80%;
+  align-content: center;
+  margin: 0 auto;
 }
 
 .start{
-  border-radius: 9px;
+  border-radius: 5px;
   background-color: white;
+  width: 80%;
+  align-content: center;
+  margin: 0 auto;
 }
 
 .results{
-  border-radius: 9px;
+  border-radius: 5px;
   background-color: white;
+  width: 80%;
+  align-content: center;
+  margin: 0 auto;
 }

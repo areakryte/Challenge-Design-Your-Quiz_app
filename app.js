@@ -119,6 +119,6 @@ $(document.body).on("click", ".restart", function(event){
   $("body").append("<div class=\"start\"><h1>Start Quiz</h1><button class=\"start-button\" onclick=\"onStart()\">Start</button></div>");
 });
 
-$(document.body).on("click", ".start", function(event){
+$(document.body).on("click", ".start-button", function(event){
   onStart(event);
 });
